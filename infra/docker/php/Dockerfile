@@ -14,6 +14,7 @@ ENV TZ=UTC \
 
 COPY --from=composer:2.4 /usr/bin/composer /usr/bin/composer
 
+# pdo, pdo_pgsql, libpq-dev는 postgresql사용하기 위해서 추가
 RUN apt-get update \
   && apt-get -y install --no-install-recommends \
     locales \
@@ -22,6 +23,7 @@ RUN apt-get update \
     libzip-dev \
     libicu-dev \
     libonig-dev \
+    libpq-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && locale-gen en_US.UTF-8 \
@@ -31,6 +33,8 @@ RUN apt-get update \
     pdo_mysql \
     zip \
     bcmath \
+    pdo \
+    pdo_pgsql \ 
   && composer config -g process-timeout 3600 \
   && composer config -g repos.packagist composer https://packagist.org
 
