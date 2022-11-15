@@ -19,7 +19,6 @@ services:
         volume:
           nocopy: true
     # 컨테이너 내 환경변수 설정, laravel의 경우 config폴더 내에서도 지정 가능.
-    # test
     # environment:
       # - APP_DEBUG=${APP_DEBUG:-true}
       # - APP_KEY=${APP_KEY:-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
